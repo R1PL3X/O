@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ Ăn Kiểu Âu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .account {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: calc(25% - 20px); /* Adjust width to fit 4 cards in a row */
+            padding: 10px;
+            text-align: center;
+        }
+        .account img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .account h3 {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .account .price {
+            font-size: 16px;
+            color: #555;
+        }
+        .account button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .account button:hover {
+            background-color: #c0392b;
+        }
+.price {
+            color:#28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .buy-button {
+            background: #dd220d;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-button:hover {
+            background: #ddd;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background:#ddd;
+            color: #fff;
+        }
+        .account-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+.account {
+            background: #fff;
+           
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(20% - 10px); /* Điều chỉnh để có 3 ô trong 1 hàng */
+            box-sizing: border-box;
+            min-height: 200px;
+        }
+
+        {
+            box-sizing:border-box;
+        }
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding:0 ;
+        }
+        
+        .hover-effect {
+            width: 300px;
+            height: 200px;
+            background: url('https://s3.hcm-1.cloud.cmctelecom.vn/bannick/photos/shares/bai_viet/bannickff/66c80d558d5eb.gif') no-repeat center center;
+            background-size: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.1);
+        }
+        .text {
+    color: #333;
+    transition: color 0.3s;
+}
+
+.text:hover {
+    color: #e74c3c;
+}
+.button {
+	margin-botttom:20px;
+	background-color: pink;
+	border: 1;
+	width: 200px;
+	padding:14px 0  14px 0;
+	border-radius: 70px;
+	font-family: "Futura", cursive;
+	font-size: 15px;
+	transition-duration: 0.4s;
+	-webkit-box-shadow: 0px 11px 22px -9px #000000;
+	box-shadow: 0px 11px 22px -9px#000000;
+	cursor: pointer;
+}
+.button:hover {
+	color: pink;
+	background-color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+nav ul li a:hover {
+    color: #28a745; /* Màu xanh cho hiệu ứng hover */
+                    }
+{
+            box-sizing:border-box;
+        }
+
+
+
+.favorite-button {
+    background-color: #ff4081; /* Màu hồng */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover {
+    background-color: #e91e63; /* Màu hồng đậm hơn khi hover */
+}
+h2 {
+    color:#000000;
+}
+p {
+    color:#000000;
+}
+.banner {
+    width: 70%;
+    max-width: 500px;
+    max-height: 600px;
+    overflow: hidden;
+    position: relative;
+  margin: auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.slides img {
+    width: 100%;
+    border-radius: 10px;
+}
+.left-banner {
+            left: 0;
+        }
+        .right-banner {
+            right: 0;
+        }
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.submenu { display: none; 
+    position: absolute; 
+    background-color: #f9f9f9; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    z-index: 1; 
+} 
+.navbar li:hover .submenu { 
+    display: block; 
+}
+ .submenu li { 
+    float: none; 
+    display: block; 
+    text-align: left; 
+} 
+.submenu li a { 
+    padding: 12px 16px; 
+    text-decoration: none; 
+    display: block; 
+} 
+.submenu li a:hover { 
+    background-color: #ddd; 
+}
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    
+        .login-icon { 
+            cursor: pointer; 
+            font-size: 24px; 
+            margin-left: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: calc(20% - 10px); 
+            padding: 10px; 
+            text-align: center;
+            height: 300px; 
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .card h3 {
+            font-size: 16px; 
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 12px; 
+            color: #555;
+        }
+        .card button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .card button:hover {
+            background-color: #c0392b;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <nav class="navbar">
+                <a style="margin-top: -30px;" href="index.html" onclick="window.location.reload();">
+                    <img class="logo" src="https://cdn.pixabay.com/animation/2023/07/08/11/26/11-26-17-598_512.gif" alt="logo"style="max-height: 70px;">
+                
+                </a>
+            
+                
+        <li><a href="V.html">Đồ Ăn</a></li>
+         <li><a href="C.html">Đồ Uống</a></li>
+         <li><a href="K.html">Tráng Miệng</a></li>
+         <li><a href="chatgpteo.html">Hỗ Trợ</a></li>
+
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm</button>
+        </div>
+        <div class="cart-menu">
+            <div class="cart-icon" onclick="toggleCartDropdown()">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                </ul>
+                <div class="total" id="cart-total">Tổng: 0 VND</div>
+            </div>
+        </div>
+        <div class="login-icon"><a href="Untitled-1.html"><i class="fa-regular fa-user"></i></a> </div>
+    </div>
+    <div class="banner">
+        <div class="slides">
+            <img src="https://tmwine.vn/upload/galleries//chuong-trinh-khuyen-mai-29-tmwine-78UX1693297495.jpg" alt="Ảnh 1" width="auto" height="auto">
+            <img src="https://inan2h.vn/wp-content/uploads/2022/12/in-banner-quang-cao-do-an-10.jpg" alt="Ảnh 2">
+            <img src="https://www.bigc.vn/files/banners/2021/may-21/resize-template-black-red-banner-web-go-2.jpg" alt="Ảnh 3">
+        </div>
+    </div>
+    <h2 style="text-align: center;font-family:Arial, Helvetica, sans-serif" class="vc_custom_heading vc_custom_1632409858192">----KIẾN THỨC VỀ ẨM THỰC CHÂU ÂU----</h2>
+    <div class="container">
+        <div class="card">
+            <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wines-1761613_640.jpg" width="300" height="200" alt="Cách thưởng thức rượu vang sành điệu">
+            <h3>Cách thưởng thức rượu vang sành điệu</h3>
+            <p>Những điều cần lưu ý trước khi thưởng thức rượu vang...</p>
+            <button class="buy-button" onclick="window.location.href='O.html'">Chi Tiết</button></p>
+        </div>
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/1344241923/vi/anh/spaghetti-v%E1%BB%9Bi-th%E1%BB%8Bt-vi%C3%AAn-v%C3%A0-s%E1%BB%91t-c%C3%A0-chua-m%C3%AC-%E1%BB%91ng-%C3%BD.jpg?s=612x612&w=0&k=20&c=gEgei4SCpsPDlbVvmL8o1UnVoOrUw0jXH8TDhpeH4gM=" width="300" height="200" alt="Giống nho Pinot noir của Pháp">
+            <h3>Bạn biết gì về món mì Spaghetti của Ý ?</h3>
+            <p>Mì ý (pasta) là món ăn quen thuộc với nhiều người, bởi nó không chỉ ngon...</p>
+            <button class="buy-button" onclick="window.location.href='P.html'">Chi Tiết</button></p>
+        </div>
+        <div class="card">
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-an-chau-au.jpg" width="300" height="200" alt="Giống nho Merlot của Pháp">
+            <h3>Những món ăn châu Âu nổi tiếng mà bạn không thể bỏ </h3>
+            <p>Món ăn châu Âu chinh phục khách du lịch thập phương...</p>
+            <button class="buy-button" onclick="window.location.href='U.html'">Chi Tiết</button></p>
+        </div>
+        <div class="card">
+            <img src="https://bizweb.dktcdn.net/100/219/449/files/nhung-diem-noi-bat-cua-nho-merlot-1.jpg?v=1540460642279" width="300" height="200" alt="Giống nho Merlot của Pháp">
+            <h3>Bạn biết gì về giống nho Merlot của Pháp?</h3>
+            <p>Merlot là một loại nho rượu vang màu xanh đậm...</p>
+            <button class="buy-button" onclick="window.location.href='I.html'">Chi Tiết</button></p>
+        </div>
+    </div>
+        <h2>Những Món Nên Thử</h2>
+    <section id="accounts">
+        <div class="account-container">
+            <div class="account">
+                <img src="https://hoangviettravel.vn/wp-content/uploads/2020/02/cac-mon-an-chinh-cua-nguoi-chau-au-05-min.jpg" width="300" height="200">
+                <h3>Mì Ý Spargeti</h3>
+                
+                <span class="price">300,000</span>
+                <p><button class="buy-button" onclick="window.location.href='6.html'">Chi Tiết</button></p>
+            </div>
+            <div class="account">
+            <img src="https://vfs.vn/wp-content/uploads/2021/03/nhung-dac-trung-cua-mon-an-am-thuc-chau-au-top-10-mon-an-ngon-noi-tieng-chau-au-6.jpg" width="300" height="200">
+            <h3>Bò Bít Tết</h3>
+            
+            <span class="price">800,000</span>
+            <p><button class="buy-button" onclick="window.location.href='@.html'">Chi Tiết</button></p>
+        </div>
+        <div class="account">
+            <img src="https://transviet.com.vn/images/CNDL2019/Chau%20Au/Mon%20an%20truyen%20thong/CNDL_Chau%20Au_mon%20an%20truyen%20thong_transviet_2.png" width="300" height="200">
+            <h3>Xúc Xích Đức</h3>
+            
+            <span class="price">250,000</span>
+            <p><button class="buy-button" onclick="window.location.href='7.html'">Chi Tiết</button></p>
+        </div>
+        <div class="account">
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-an-noi-tieng-chau-au.jpg" width="300" height="200">
+            <h3>Borscht Soup </h3>
+            
+            <span class="price">300,000</span>
+            <p><button class="buy-button" onclick="window.location.href='-.html'">Chi Tiết</button></p>
+        </div>
+        </section>
+        <h2>Những Đồ Uống Đáng Chú Ý</h2>
+        <section id="accounts">
+            <div class="account-container">
+                <div class="account">
+                    <img src="https://ruouchauau.com/wp-content/uploads/2024/03/BIN-1976-scaled-450x450.jpg" width="300" height="200">
+                    <h3>Bin 1976 LUSSAC SAINT EMILION</h3>
+                    
+                    <span class="price">1,000,000</span>
+                    <p><button class="buy-button" onclick="window.location.href='Bin 1976.html'">Chi Tiết</button></p>
+                </div>
+                <div class="account">
+                <img src="https://ruouchauau.com/wp-content/uploads/2023/05/Ruou-vang-HD-02-450x450.png" width="300" height="200">
+                <h3>1976 Cabernet Sauvignon</h3>
+                
+                <span class="price">2,000,000</span>
+                <p><button class="buy-button" onclick="window.location.href='0-1976.html'">Chi Tiết</button></p>
+     
+            </div>
+            <div class="account">
+                <img src="https://ruouchauau.com/wp-content/uploads/2023/05/Ruou-vang-32-450x450.jpg" width="300" height="200">
+                <h3>1976 Lussac Saint Emilion</h3>
+                
+                <span class="price">800,000</span>
+                <p><button class="buy-button" onclick="window.location.href='1976 lussac.html'">Chi Tiết</button></p>
+                
+            </div>
+            <div class="account">
+                <img src="https://ruouchauau.com/wp-content/uploads/2020/11/08-Ancora-Mat-truoc-Bac_1-600x600.png" width="300" height="200">
+                <h3>Ancora Montepulciano</h3>
+                
+                <span class="price">70,000</span>
+                <p><button class="buy-button" onclick="window.location.href='Ancora Montepulciano.html'">Chi Tiết</button></p>
+      
+            </div>
+                </section>
+    <section id="contact">
+        <h2>Liên Hệ</h2>
+        <p>Mọi thắc mắc liên quan có thể liên hệ qua: support@example.com</p>
+        <p>Hoặc qua sdt 012345678</p>
+    </section>
+    <script>
+ let cart = [];
+
+// Khởi tạo giỏ hàng từ localStorage
+function initializeCart() {
+    const savedCart = localStorage.getItem('cart');
+    cart = savedCart ? JSON.parse(savedCart) : [];
+    updateCart();
+}
+
+// Lưu giỏ hàng vào localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Thêm sản phẩm vào giỏ
+function addToCart(productName, price) {
+    const product = { name: productName, price: price };
+    cart.push(product);
+    saveCart(); // Lưu giỏ hàng
+    updateCart(); // Cập nhật giao diện
+}
+
+// Cập nhật giao diện giỏ hàng
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    // Xóa danh sách cũ
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    // Thêm sản phẩm vào giao diện
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.name} - ${item.price.toLocaleString()} VND 
+            <button class="remove-btn" onclick="removeFromCart(${index})">Xóa</button>`;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    // Cập nhật số lượng và tổng tiền
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = `Tổng: ${total.toLocaleString()} VND`;
+}
+
+// Xóa sản phẩm khỏi giỏ
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart(); // Cập nhật localStorage
+    updateCart(); // Cập nhật giao diện
+}
+
+// Hiển thị hoặc ẩn dropdown giỏ hàng
+function toggleCartDropdown() {
+    const dropdown = document.getElementById('cart-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+// Khởi chạy khi tải trang
+initializeCart();
+    </script>
+     <script src="z.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu sản phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .review {
+            border-bottom: 1px solid #dfdcdc;
+            padding: 10px 0;
+        }
+        .review:last-child {
+            border-bottom: none;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .stars {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+            color: gray;
+        }
+        .star.selected {
+            color: rgb(255, 227, 69);
+        }
+        .thank-you {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: rgb(37, 39, 37);
+            text-align: center;
+        }
+        /* nút bấm quay lại web*/
+        .animated-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #5c5f9b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 80px; /* Kích thước lớn hơn */
+            height: 80px; /* Kích thước lớn hơn */
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: bounce 2s infinite; /* Hiệu ứng nhảy */
+        }
+        .animated-button:hover {
+            background-color: #779cbe; /* Màu nền khi di chuột qua */
+            transform: scale(1.1); /* Phóng to nhẹ */
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .tabs-wrapper {
+            width: 100%;
+            margin: 20px 0;
+        }
+        .pro-tabs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px solid #ccc;
+        }
+        .pro-tabs li {
+            margin: 0 5px;
+        }
+        .pro-tabs li a {
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            color: #333;
+            border-radius: 5px 5px 0 0;
+            background-color: #f1f1f1;
+        }
+        .pro-tabs li.active a {
+            background-color: #fff;
+            border-bottom: 2px solid #fff;
+            font-weight: bold;
+        }
+        .tab-content {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: #fff;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .panel-group .panel {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .panel-heading {
+            padding: 10px 15px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        .panel-title a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        .panel-body {
+            padding: 15px;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.product-details {
+    margin-left: 20px;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 20px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.status, .sku {
+    margin-bottom: 10px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.add-to-cart {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #c0392b;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.tab-button:hover {
+    background-color: #555;
+}
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .account {
+    flex: 1 1 calc(25% - 10px); 
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.price {
+            color:#28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .buy-button {
+            background: #dd220d;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-button:hover {
+            background: #ddd;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background:#ddd;
+            color: #fff;
+        }
+        .account-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+.account {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 5px #e74c3c;
+            flex: 1 1 calc(25% - 10px); /* Điều chỉnh để có 3 ô trong 1 hàng */
+            box-sizing: border-box;
+            min-height: 300px;
+        }
+
+        {
+            box-sizing:border-box;
+        }
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding:0 ;
+        }
+        
+        .hover-effect {
+            width: 300px;
+            height: 200px;
+            background: url('https://s3.hcm-1.cloud.cmctelecom.vn/bannick/photos/shares/bai_viet/bannickff/66c80d558d5eb.gif') no-repeat center center;
+            background-size: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.1);
+        }
+        .text {
+    color: #333;
+    transition: color 0.3s;
+}
+
+.text:hover {
+    color: #e74c3c;
+}
+.button {
+	margin-botttom:20px;
+	background-color: pink;
+	border: 1;
+	width: 200px;
+	padding:14px 0  14px 0;
+	border-radius: 70px;
+	font-family: "Futura", cursive;
+	font-size: 15px;
+	transition-duration: 0.4s;
+	-webkit-box-shadow: 0px 11px 22px -9px #000000;
+	box-shadow: 0px 11px 22px -9px#000000;
+	cursor: pointer;
+}
+.button:hover {
+	color: pink;
+	background-color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+nav ul li a:hover {
+    color: #28a745; /* Màu xanh cho hiệu ứng hover */
+                    }
+{
+            box-sizing:border-box;
+        }
+
+
+
+.favorite-button {
+    background-color: #ff4081; /* Màu hồng */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover {
+    background-color: #e91e63; /* Màu hồng đậm hơn khi hover */
+}
+h2 {
+    color:#ccc ;
+}
+p {
+    color: #333;
+}
+h3 {
+    color:#333
+}
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+/* Hiệu ứng hover cho phần giỏ hàng */
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+/* Thêm hiệu ứng khi giỏ hàng được nhấn vào */
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .submenugt li .mnucap3 {
+            display: none;
+            position: absolute;
+        }
+        .submenugt li:hover .mnucap3 {
+            display: block;
+            left: 150px;
+            top: 0px;
+        }
+        #menu ul li .submenugt {
+            display: block;
+            left: 150px;
+            top: 0px;
+        }
+        #menu ul li .submenugt {
+            display: none;
+            possition:absolute;
+        }
+        .login-icon { 
+            cursor: pointer; 
+            font-size: 24px; 
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <nav class="navbar">
+                <a style="margin-top: -30px;" href="index.html" onclick="window.location.reload();">
+                    <img class="logo" src="https://cdn.pixabay.com/animation/2023/07/08/11/26/11-26-17-598_512.gif" alt="logo"style="max-height: 70px;">
+                </a>
+            
+                
+        <li><a href="V.html">Đồ Ăn</a>
+         <li><a href="C.html">Đồ Uống</a></li>
+        <li><a href="K.html">Tráng Miệng</a></li>
+        <li><a href="chatgpteo.html">Hỗ Trợ</a></li>
+
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm</button>
+        </div>
+        <div class="cart-menu">
+            <div class="cart-icon" onclick="toggleCartDropdown()">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                </ul>
+                <div class="total" id="cart-total">Tổng: 0 VND</div>
+            </div>
+        </div>
+        <div class="login-icon"><a href="Untitled-1.html"><i class="fa-regular fa-user"></i></a> </div>
+    </div>
+    <div class="container">
+        <div class="product-image">
+            <img src="https://ezcloud.vn/wp-content/uploads/2024/03/banh-crepes.webp" alt="Mì ý Spaghetti" width="300" height="200">
+        </div>
+        <div class="product-details">
+            <h1>Bánh Crepes</h1>
+            <p class="price">300,000₫</p>
+            <p class="status">Còn hàng</p>
+            <p><button class="buy-button" onclick="addToCart('Bánh Crepes', 300000)">Thêm vào giỏ</button></p>
+        </div>
+    </div>
+    <div class="tabs-wrapper">
+        <ul class="pro-tabs flex-box align-c justify-c">
+            <li class="active"><a href="6.html">Mô tả</a></li>
+            <li><a href="4.html">Đánh giá</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active content_product" id="home">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingOne">
+                            <h4 class="panel-title"><a href="#collapseOne"> <i class="fa fa-caret-right"></i>&nbsp;&nbsp;Bò Bít Tết </a></h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p><strong>Bánh Crepes</strong></a>Nhắc đến những món tráng miệng hấp dẫn nhất có nguồn gốc từ Châu Âu thì chắc chắn không thể thiếu bánh Crepes. Món bánh này ghi điểm nhờ lớp vỏ mỏng hấp dẫn, kết hợp cùng một số loại topping như hoa quả, socola… Chính bởi sự đơn giản trong cách chế như vậy mà các bạn hoàn toàn có thể thực hiện ở nhà để cho ra đời những chiếc bánh Crepes phù hợp nhất với sở thích của bản thân.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        <script>
+       let cart = [];
+
+// Khởi tạo giỏ hàng từ localStorage
+function initializeCart() {
+    const savedCart = localStorage.getItem('cart');
+    cart = savedCart ? JSON.parse(savedCart) : [];
+    updateCart();
+}
+
+// Lưu giỏ hàng vào localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Thêm sản phẩm vào giỏ
+function addToCart(productName, price) {
+    const product = { name: productName, price: price };
+    cart.push(product);
+    saveCart(); // Lưu giỏ hàng
+    updateCart(); // Cập nhật giao diện
+}
+
+// Cập nhật giao diện giỏ hàng
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    // Xóa danh sách cũ
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    // Thêm sản phẩm vào giao diện
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.name} - ${item.price.toLocaleString()} VND 
+            <button class="remove-btn" onclick="removeFromCart(${index})">Xóa</button>`;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    // Cập nhật số lượng và tổng tiền
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = `Tổng: ${total.toLocaleString()} VND`;
+}
+
+// Xóa sản phẩm khỏi giỏ
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart(); // Cập nhật localStorage
+    updateCart(); // Cập nhật giao diện
+}
+
+// Hiển thị hoặc ẩn dropdown giỏ hàng
+function toggleCartDropdown() {
+    const dropdown = document.getElementById('cart-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+// Khởi chạy khi tải trang
+initializeCart();
+            
+            
+        </script>
+
+</body>
+</html>
