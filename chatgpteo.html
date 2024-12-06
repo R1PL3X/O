@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trợ Giúp Khách Hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <body background="https://img.pikbest.com/wp/202344/natural-oak-high-resolution-photo-of-weathered-texture-on-black-wood_9933156.jpg!w700wp"></body>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #e0f7fa, #ffe0b2);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    position: relative;
+}
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px; 
+            height: 80%; 
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background: linear-gradient(to right, #5c5f9b, #779cbe);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .chat-messages {
+            padding: 20px;
+            flex: 1; 
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 0;
+        }
+        .chat-input button {
+            padding: 10px 15px;
+            background: #5c5f9b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background: #779cbe;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 100%; 
+        }
+        .message.user {
+            background: #e1f5fe;
+            align-self: flex-end; 
+        }
+        .message.agent {
+            background: #c8e6c9;
+            align-self: flex-start; 
+        }
+ 
+        .animated-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #5c5f9b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 80px; 
+            height: 80px; 
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            agentMessage.textContent = 'Địa chỉ của chúng tôi là 123 Đường ABC, Thành phố XYZ.';
+                    } else if (userInput.toLowerCase().includes('xin chào')) {
+                        agentMessage.textContent = 'Cảm ơn bạn đã liên hệ, chúng tôi sẽ phản hồi sớm nhất!';
+                    } else if (userInput.toLowerCase().includes('tôi muốn xem sản phẩm ')) { 
+                        agentMessage.textContent = 'Bạn có thể lựa chọn mục sản phẩm để biết thêm các thông tin chi tiết.';
+                    } else if (userInput.toLowerCase().includes('bảo hành')) {
+                        agentMessage.textContent=" Cửa hàng cam kết sửa chữa hoặc thay thế sản phẩm miễn phí trong thời gian bảo hành. Trong trường hợp sản phẩm không còn hàng thay thế, cửa hàng sẽ hoàn tiền cho khách hàng."
+                    } else if (userInput.toLowerCase().includes('tduong co beo khong')){
+                        agentMessage.textContent="co chac chan co khong the sai duoc"
+                    } else if (userInput.toLowerCase().includes('tin juan chua')){
+                        agentMessage.textContent="juan sai lam sao duoc"
+                    }
+                    
+                    chatMessages.appendChild(agentMessage);
+
+                    // Cuộn xuống cuối
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+        align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: bounce 2s infinite;
+        }
+        .animated-button:hover {
+            background-color: #779cbe; 
+            transform: scale(1.1); 
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .account {
+    flex: 1 1 calc(25% - 10px); 
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.price {
+            color:#28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .buy-button {
+            background: #dd220d;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-button:hover {
+            background: #ddd;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background:#ddd;
+            color: #fff;
+        }
+        .account-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+.account {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 5px #e74c3c;
+            flex: 1 1 calc(25% - 10px); /* Điều chỉnh để có 3 ô trong 1 hàng */
+            box-sizing: border-box;
+            min-height: 300px;
+        }
+
+        {
+            box-sizing:border-box;
+        }
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding:0 ;
+        }
+        .hover-effect:hover {
+            transform: scale(1.1);
+        }
+        .text {
+    color: #333;
+    transition: color 0.3s;
+}
+
+.text:hover {
+    color: #e74c3c;
+}
+.button {
+	margin-botttom:20px;
+	background-color: pink;
+	border: 1;
+	width: 200px;
+	padding:14px 0  14px 0;
+	border-radius: 70px;
+	font-family: "Futura", cursive;
+	font-size: 15px;
+	transition-duration: 0.4s;
+	-webkit-box-shadow: 0px 11px 22px -9px #000000;
+	box-shadow: 0px 11px 22px -9px#000000;
+	cursor: pointer;
+}
+.button:hover {
+	color: pink;
+	background-color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+nav ul li a:hover {
+    color: #28a745; 
+                    }
+{
+            box-sizing:border-box;
+        }
+
+
+        .cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+/* Hiệu ứng hover cho phần giỏ hàng */
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+/* Thêm hiệu ứng khi giỏ hàng được nhấn vào */
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .submenugt li .mnucap3 {
+            display: none;
+            position: absolute;
+        }
+        .submenugt li:hover .mnucap3 {
+            display: block;
+            left: 150px;
+            top: 0px;
+        }
+        #menu ul li .submenugt {
+            display: block;
+            left: 150px;
+            top: 0px;
+        }
+        #menu ul li .submenugt {
+            display: none;
+            possition:absolute;
+        }
+        .login-icon { 
+            cursor: pointer; 
+            font-size: 24px; 
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="chat-container">
+        <div class="chat-header">Hỗ trợ khách hàng</div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message agent">Chào mừng bạn đến với dịch vụ hỗ trợ khách hàng của chúng tôi!</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
+            <button onclick="sendMessage()">Gửi</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            if (userInput.trim() !== '') {
+                const chatMessages = document.getElementById('chatMessages');
+
+                // Tạo phần tử tin nhắn của người dùng
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('message', 'user');
+                userMessage.textContent = userInput;
+                chatMessages.appendChild(userMessage);
+
+                // Xóa nội dung nhập
+                document.getElementById('userInput').value = '';
+
+                // Cuộn xuống cuối
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Giả lập phản hồi của nhân viên
+                setTimeout(() => {
+                    const agentMessage = document.createElement('div');
+                    agentMessage.classList.add('message', 'agent');
+
+                    // Phản hồi dựa trên nội dung
+                     if (userInput.toLowerCase().includes('xin chào')) {
+                        agentMessage.textContent = 'Chúng tôi có thể giúp gì cho bạn!';
+                     }else if (userInput.toLowerCase().includes('giờ làm việc')) {
+                        agentMessage.textContent = 'Giờ làm việc của chúng tôi là từ 8:00 sáng đến 5:00 chiều, từ thứ Hai đến thứ Sáu.';
+                    } else if (userInput.toLowerCase().includes('địa chỉ')) {
+    
+    
+    
+        </script>
+
+
+    </body>
+</html>

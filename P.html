@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ẩm Thực Châu Âu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .subheading {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+            margin-top: -10px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #555;
+            text-align: justify;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <nav class="navbar">
+                <a style="margin-top: -30px;" href="index.html" onclick="window.location.reload();">
+                    <img class="logo" src="https://cdn.pixabay.com/animation/2023/07/08/11/26/11-26-17-598_512.gif" alt="logo"style="max-height: 70px;">
+                
+                </a>
+            
+                
+        <li><a href="V.html">Đồ Ăn</a>
+         <li><a href="C.html">Đồ Uống</a></li>
+        <li><a href="K.html">Gia Vị</a></li>
+        <li><a href="chatgpteo.html">Hỗ Trợ</a></li>
+
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm</button>
+        </div>
+        <div class="cart-menu">
+            <div class="cart-icon" onclick="toggleCartDropdown()">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                </ul>
+                <div class="total" id="cart-total">Tổng: 0 VND</div>
+            </div>
+        </div>
+        <div class="login-icon"><a href="Untitled-1.html"><i class="fa-regular fa-user"></i></a> </div>
+    </div>
+    <div class="container">
+        <h1>NHỮNG ĐIỀU MÀ BẠN CHƯA BIẾT VỀ MÌ SPAGHETTI CỦA Ý</h1>
+        <div class="content">
+            <p>Mì ý (pasta) là món ăn quen thuộc với nhiều người, bởi nó không chỉ ngon miệng mà còn dễ chế biến và phong phú về hình thức. Mì ý là biểu tượng của ẩm thực Ý, một đất nước giàu truyền thống và văn hoá. Nhưng bạn có biết, món mì ý còn có nhiều điều bí mật và thú vị mà bạn chưa từng nghe qua? Hãy cùng Bluebird khám phá những sự thật về món mì ý trong bài viết này nhé!</p>
+        
+       <h1>Món mì ý có nguồn gốc từ đâu?</h1>
+       <p>Đây là câu hỏi mà nhiều người vẫn chưa có câu trả lời chính xác. Một số người cho rằng món mì ý xuất xứ từ Trung Quốc, dựa trên ghi chép của nhà thám hiểm Marco Polo vào thế kỷ 13. Theo đó, ông đã mang món mì ý từ Trung Quốc về Ý và giới thiệu cho người dân nơi đây. Tuy nhiên, một số người khác lại bác bỏ giả thuyết này, và cho rằng món mì ý đã ra đời ở Sicily, một đảo thuộc Ý. Theo ghi chép của nhà địa lý học Hồi giáo Al-Idrisi vào thế kỷ 12, món mì ý đã được sản xuất và tiêu thụ ở Sicily trước khi được lan truyền đến Napoli và các vùng khác của Ý. Cho đến nay, nguồn gốc của món mì ý vẫn còn là một bí ẩn lớn.</p>
+       <img src="http://thebluebirdvn.com/upload/images/OIP%20(2).jpg" width="800" height="700" >
+        <h1>Món mì ý từng là món ăn của giới quý tộc</h1>
+        <p>Bạn có tin không, món mì ý từng là món ăn xa xỉ, chỉ dành cho những người giàu có và quyền quý ở Ý. Lý do là vì món mì ý được làm từ bột mì cao cấp, phô mai tươi và các loại gia vị đắt tiền. Món mì ý cũng được coi là một nghệ thuật ẩm thực, vì nó có nhiều kiểu dáng và màu sắc khác nhau. Món mì ý chỉ trở nên phổ biến với mọi người vào thế kỷ 18, khi công nghệ sản xuất và vận chuyển được cải tiến. Từ đó, món mì ý đã trở thành món ăn đặc trưng cho văn hoá ẩm thực của Ý, không kém gì Gelato hay Pizza.</p>
+
+           <h1>Món mì ý được ăn bằng tay</h1> 
+    
+        <p>Đây là một sự thật khó tin nhưng lại có thật. Khi món mì ý mới ra đời, nó được ăn bằng tay, không cần dùng đến dao, nĩa hay đũa. Bởi vì lúc đó, món mì ý được ăn dạng khô, không có nước sốt, chỉ kèm với phô mai bào. Do đó, việc ăn bằng tay sẽ tiện lợi và dễ dàng hơn. Đến thế kỷ 18, khi món mì ý được ăn ướt với các loại nước sốt, người ta mới bắt đầu dùng các dụng cụ ẩm thực để thưởng thức. Từ đó, món mì ý cũng có nhiều quy tắc ăn uống để thể hiện sự tao nhã và lịch sự.</p>
+        <h1>Món mì ý có hơn 600 loại khác nhau</h1>
+        <p>Một sự thật về món mì ý mà bạn có thể không tin nổi, đó là có hơn 600 loại sợi mì ý khác nhau trên thế giới. Mỗi loại mì ý sẽ có hình dạng, kích thước, độ dày và màu sắc riêng. Mỗi loại mì ý cũng sẽ phù hợp với một loại nước sốt và một cách chế biến khác nhau. Trong đó, spaghetti là loại mì ý phổ biến nhất, có hình dạng dài và mảnh, thường được ăn với nước sốt cà chua, thịt băm, rau mùi và phô mai. Ngoài ra, còn có nhiều loại mì ý khác như macaroni, penne, fusilli, lasagna, ravioli, gnocchi…</p>
+        <img src="http://thebluebirdvn.com/upload/images/z4783246901150_b89379799116b22bc957e258f3feb401.jpg" width="800" height="700" >
+        <h1>Món mì ý được tiêu thụ nhiều nhất ở Ý và Mỹ</h1>
+        <p>Không có gì ngạc nhiên khi Ý là quốc gia tiêu thụ mì ý nhiều nhất thế giới, bởi món ăn này là một phần của văn hoá và lịch sử của họ. Theo Hiệp hội Công nghiệp Bánh ngọt và Pasta (Aideppi) cho thấy người dân yêu thích mì Ý hơn 90%. Cũng theo thống kê này, cho kết quả rằng, người dân dùng mì Ý từ 4 lần đến 7 lần trong tuần (khoảng 69%). Đồng thời, người dân đã thưởng thức từ 80mg đến 100g mì Ý mỗi lẫn. Đây là những số liệu khá lớn về khả năng tiêu thụ mì Ý nói chung ở đất nước hình chiếc ủng. Ngoài ra tại Mỹ, con số tiêu thụ mì Ý cũng rất cao (khoảng 20 pound) theo thống kê năm 2019.</p>
+        <img src="http://thebluebirdvn.com/upload/images/z4783246914380_a11270529a6b4276e38d7b5f64559a93.jpg" width="800" height="700" >
+    </div>
+</body>
+</html>

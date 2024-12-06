@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ẩm Thực Châu Âu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .subheading {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+            margin-top: -10px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #555;
+            text-align: justify;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <nav class="navbar">
+                <a style="margin-top: -30px;" href="index.html" onclick="window.location.reload();">
+                    <img class="logo" src="https://cdn.pixabay.com/animation/2023/07/08/11/26/11-26-17-598_512.gif" alt="logo"style="max-height: 70px;">
+                
+                </a>
+            
+                
+        <li><a href="V.html">Đồ Ăn</a>
+         <li><a href="C.html">Đồ Uống</a></li>
+        <li><a href="K.html">Gia Vị</a></li>
+        <li><a href="chatgpteo.html">Hỗ Trợ</a></li>
+
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm</button>
+        </div>
+        <div class="cart-menu">
+            <div class="cart-icon" onclick="toggleCartDropdown()">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                </ul>
+                <div class="total" id="cart-total">Tổng: 0 VND</div>
+            </div>
+        </div>
+        <div class="login-icon"><a href="Untitled-1.html"><i class="fa-regular fa-user"></i></a> </div>
+    </div>
+    <div class="container">
+        <h1>Cách thưởng thức rượu vang sành điệu</h1>
+        <div class="content">
+            <p>Những điều cần lưu ý trước khi thưởng thức rượu vang Hãy chắc chắn rằng miệng của bạn không bị ảnh hưởng từ những món ăn giàu gia vị khác ngay trước khi thưởng thức rượu vang. Không nên xịt nước hoa trước khi thưởng thức rượu vang. Nó có thể khiến mùi hương mà bạn cảm nhận được không còn chính xác nữa. Việc giữ rượu ở nhiệt độ thích hợp và chuẩn bị các món ăn kèm phù hợp khi thưởng thức rượu vang sẽ góp phần giúp cho lần trải nghiệm đó trở nên thú vị hơn.</p>
+            <img src="https://winemart.vn/wp-content/uploads/2019/04/tasting-note.jpg" width="800" height="700" >
+       <h1>Các bước thưởng thức rượu vang:</h1>
+       <p>B1. Quan sát rượu vang (Look)</p>
+       <p>Quan sát rượu vang Hãy luôn bắt đầu quá trình thưởng thức rượu vang bằng việc quan sát màu sắc, độ trong suốt và chân rượu vang (wine legs), rượu vang có cặn hay không? Dựa vào màu sắc, bạn có thể đoán vang còn trẻ hay đã quá già. Trong trường hợp bạn được phục vụ tại các buổi tiệc và không thấy vintage trên nhãn chai. Bạn có thể nhận biết rất nhiều thông tin chỉ cần dựa vào việc quan sát.</p>
+        <p>B2. Ngửi mùi hương (Smell)</p>
+        <p>Ngửi vang trước khi nếm thử giúp bạn dễ dành nhận ra được mùi hương đặc trưng của các giống nho. Bạn hãy bắt đầu bằng việc xoay tròn vang quanh thành ly. Mùi hương sẽ được bung tỏa khi vang tiếp xúc với không khí.</p>
+        <p> Ngửi vang để cảm nhận được mùi hương Có thể chia thành ba tầng hương chính sau:</p>
+        <p>Mùi hương cấp độ I: mùi nguyên thủy của trái nho. Bao gồm mùi trái cây, mùi thảo dược và hoa.</p>
+        <p> Mùi hương cấp độ II: xảy ra khi acid trong trái nho phản ứng lại với cồn và dễ dàng được nhận thấy với các loại vang trắng như: mùi phô mai, mùi quả hạch,…</p>
+        <p>Mùi hương cấp độ III: được hình thành khi rượu vang được ủ trong thùng gỗ một thời gian dài. Như mùi gỗ sồi, mùi vani, mùi da thuộc, mùi thuốc lá,…</p>
+        <p>B3. Nếm rượu vang (Taste)</p>
+        <p>Nếm rượu vang Khi nếm, bạn sẽ cảm nhận được các điều sau:</p>
+        <p>Vị của vang: Lưỡi của chúng ta có thể nhận biết được vị mặn, chua, ngọt và đắng. Tất cả loại vang đều ít nhiều có vị chua vì nho vốn dĩ đã có chứa acid. Vị này cũng sẽ thay đổi tùy thuộc vào khí hậu và giống nho. Một vài loại nho nổi tiếng với vị đắng (VD: Pinot Grigio). Vài loại khác thì có chứa nhiều đường và giúp vang có vị ngọt tự nhiên. Có một số rất ít giống nho lại có vị mặn.</p>
+        <p>Texture: có thể được hiểu là cấu trúc của vang. Bạn sẽ cảm nhận được nó khi đưa vang đi khắp vòm miệng. Cụm từ “tròn vị” thường được dùng để miêu tả cấu trúc của vang.</p>
+        <p>Hậu vị: là cảm giác còn sót lại trong vòm họng. Thường kéo dài trong khoảng 10 giây.</p>
+    </div>
+</body>
+</html>

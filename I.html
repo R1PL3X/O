@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ẩm Thực Châu Âu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .subheading {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+            margin-top: -10px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #555;
+            text-align: justify;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <nav class="navbar">
+                <a style="margin-top: -30px;" href="index.html" onclick="window.location.reload();">
+                    <img class="logo" src="https://cdn.pixabay.com/animation/2023/07/08/11/26/11-26-17-598_512.gif" alt="logo"style="max-height: 70px;">
+                
+                </a>
+            
+                
+        <li><a href="V.html">Đồ Ăn</a>
+         <li><a href="C.html">Đồ Uống</a></li>
+        <li><a href="K.html">Gia Vị</a></li>
+        <li><a href="chatgpteo.html">Hỗ Trợ</a></li>
+
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm</button>
+        </div>
+        <div class="cart-menu">
+            <div class="cart-icon" onclick="toggleCartDropdown()">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                </ul>
+                <div class="total" id="cart-total">Tổng: 0 VND</div>
+            </div>
+        </div>
+        <div class="login-icon"><a href="Untitled-1.html"><i class="fa-regular fa-user"></i></a> </div>
+    </div>
+    <div class="container">
+        <h1>BẠN BIẾT GÌ VỀ GIỐNG NHO MERLOT CỦA PHÁP ?</h1>
+        <div class="content">
+            <p>Merlot là giống nho có màu xanh đậm, được sử dụng đồng thời trong việc sản xuất rượu vang Merlot và làm thành phần phối trộn giống thành các loại blending khác nhau. Giống nho rượu vang đỏ này có mối quan hệ chặt chẽ với vùng Bordeaux và phía tây nam nước Pháp.
+                Đây là giống nho phổ biến nhất trong thành phần hầu hết các loại rượu vang đến từ Saint-Emilion và Pomerol. Ngoài ra, merlot được trồng rộng rãi ở hầu hết các vùng rượu vang trên toàn thế giới. Về mức độ phổ biết và số lượng rượu được sản xuất ra trên thế giới từ giống nho này chỉ có đối thủ là Cabernet Sauvignon
+            </p>
+            <p>Merlot là một loại nho trưởng thành sớm và có thể chín hoàn toàn trong điều kiện thời tiết mát mẻ. Hạn chế chủ yếu của nho này là nở hoa sớm nên dễ bị tổn thương trong khí hậu băng giá của mùa xuân.</p>
+            <p>Cùng với Cabernet Sauvignon, Cabernet Franc, Malbec và Petit Verdot, Merlot là một trong những loại nho chính được sử dụng trong rượu vang Bordeaux và là loại nho được trồng rộng rãi nhất ở vùng rượu Bordeaux – Pháp</p>
+            <img src="https://winecellar.vn/wp-content/uploads/2017/08/bordeaux-3-1.jpg" width="800" height="700" >
+        <h1>Rượu vang Merlot – hương vị đặc trưng</h1>
+        <p>Rượu vang mang phong cách này có màu tím với hương vị đậm đà với nồng độ cồn cao và độ chát nhẹ, hương vị gỗ sồi mạnh mẽ, tannin mịn màng cùng hương vị của mận và quả việt quất. Trong khi đó, về phong cách truyền thống đặc trưng của vùng Bordeaux tại Pháp – quốc gia Cựu Thế Giới lại thu hoạch nho Merlot sớm hơn để giữ lại tính axit và những đặc tính còn non của nho. Rượu vang truyền thống vùng Bordeaux đem lại vị trung bình với nồng độ cồn vừa phải, lan tỏa hương vị trái cây tươi (mân xôi, dâu tây)</p>
+        <img src="https://winecellar.vn/wp-content/uploads/2017/08/merlot.jpg" width="800" height="700" >
+        </div>
+        <h1>Sự thật thú vị về nho Merlot</h1>
+        <p>Các nghiên cứu về di truyền học của Merlot cho thấy giống nho này liên quan chặt chẽ đến Cabernet Franc và Cabernet Sauvignon. Đây là những thành phần pha trộn chủ yếu của dòng vang Bordeaux Blend. Ngoài ra, Carmenere, một thành viên gần gũi với gia đình giống nho tại Bordeaux đã bị nhầm lẫn là Merlot trong nhiều năm ở những vườn nho ở Chi Lê.</p>
+        <p>Đáng lưu ý ở đây là “Caberlot” hay còn gọi là Carniscale, một giống nho được phát hiện bởi nhà thực vật học người Ý Remigio Bordini và được cho là sự kết hợp của Merlot và Cabernet Sauvignon. Loại nho gần như huyền bí này chỉ tồn tại trong một vườn nho nhỏ ở Tuscany.</p>
+        <img src="https://winecellar.vn/wp-content/uploads/2017/08/merlot-2.jpg" width="800" height="700" >
+        </div>
+    </div>
+</body>
+</html>

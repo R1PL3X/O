@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ẩm Thực Châu Âu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .subheading {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+            margin-top: -10px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #555;
+            text-align: justify;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid red;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    border-radius: 8px;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-dropdown ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-dropdown ul li .remove-btn {
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-dropdown ul li .remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+.cart-dropdown .total {
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+
+.cart-menu:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-icon:hover {
+    color: #28a745;
+    transition: color 0.3s;
+}
+.cart-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-icon {
+            cursor: right;
+            font-size: 20px;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .cart-menu:hover .cart-dropdown {
+            display: block;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <nav class="navbar">
+                <a style="margin-top: -30px;" href="index.html" onclick="window.location.reload();">
+                    <img class="logo" src="https://cdn.pixabay.com/animation/2023/07/08/11/26/11-26-17-598_512.gif" alt="logo"style="max-height: 70px;">
+                
+                </a>
+            
+                
+        <li><a href="V.html">Đồ Ăn</a>
+         <li><a href="C.html">Đồ Uống</a></li>
+        <li><a href="K.html">Gia Vị</a></li>
+        <li><a href="chatgpteo.html">Hỗ Trợ</a></li>
+
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm</button>
+        </div>
+        <div class="cart-menu">
+            <div class="cart-icon" onclick="toggleCartDropdown()">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                </ul>
+                <div class="total" id="cart-total">Tổng: 0 VND</div>
+            </div>
+        </div>
+        <div class="login-icon"><a href="Untitled-1.html"><i class="fa-regular fa-user"></i></a> </div>
+    </div>
+    <div class="container">
+        <h1>TOP MÓN ĂN NỔI TIẾNG Ở CHÂU ÂU NHẤT ĐỊNH PHẢI THỬ</h1>
+        <p class="subheading">Thứ hai, 05/02/2024</p>
+        <div class="content">
+            <p>Món ăn châu Âu chinh phục khách du lịch thập phương nhờ sự đa dạng và hương vị đặc trưng vô cùng hấp dẫn. Nếu bạn có hứng thú với ẩm thực châu Âu thì mời bạn theo dõi bài viết dưới đây để chọn ra được những món ăn hấp dẫn nhất nhé!</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-an-chau-au.jpg" alt="Hình ảnh món ăn châu Âu" width="800" height="700" >
+        </div>
+        <div class="section">
+            <h2>Pizza của Italia</h2>
+            <p>Nhắc đến ẩm thực Ý nói riêng và món ăn châu Âu nói chung thì không thể không nhắc đến Pizza. Món ăn này bắt đầu phổ biến vào thế kỷ 18 ở Ý và dần trở thành đặc sản của người dân nơi đây. Miếng bánh mì dẹt với phần viền giòn rụm, phần nhân với rất nhiều loại rau củ như cà chua, tỏi, húng quế, dầu ô liu… đã chinh phục không biết bao nhiêu thực khách. Du lịch châu Âu, bạn có thể thưởng thức Pizza ở khắp mọi nơi, từ hàng quán bình dân hay nhà hàng sang trọng đều có phục vụ món ăn này.</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/nguoi-chau-au-an-gi.jpg" alt="Hình ảnh spaghetti" width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Spaghetti của Ý</h2>
+            <p>Spaghetti là một trong những món ăn nổi tiếng nhất ở Ý. Ban đầu, món mì này chỉ dành cho giới quý tộc nhưng dần trở nên phổ biến và được ưa chuộng trên toàn thế giới. Những sợi mì màu vàng thơm ngon được ăn kèm với các loại nước sốt độc đáo đã khiến không ít người mê mệt món ăn này. Đến du lịch châu Âu, bạn nên ăn thử Spaghetti sốt cà chua hoặc sốt phô mai kem tươi để cảm nhận được sự độc đáo của món ăn này nhé!</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/do-an-chau-au.jpg" alt="Hình ảnh spaghetti"width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Xúc xích Đức</h2>
+            <p>Nhắc đến văn hóa ẩm thực Đức, người ta nhớ đến ngay những cây xúc xích thơm ngon. Món ăn đơn giản này trở thành đặc sản nổi tiếng ở châu Âu không chỉ nhờ mùi vị hấp dẫn mà còn bởi sự tiện lợi, có thể chế biến thành nhiều món ngon hấp dẫn. Xúc xích Đức có đến 1500 loại, mỗi loại được làm từ nguyên liệu, công thức khác nhau đại diện cho một câu chuyện, một nét ẩm thực riêng biệt của từng địa phương. Do đó, bạn nhất định phải thử xúc xích khi du lịch Đức nhé!</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/nhung-mon-an-chau-au.jpg"width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Borscht Soup của Ukraine</h2>
+            <p>Điều đặc biệt nhất của món Borscht Soup chính là màu đỏ tía độc đáo. Sở dĩ món ăn này có màu sắc ấn tượng như vậy là do nó được làm từ củ cải đường - nguyên liệu truyền thống được sử dụng để làm nhiều món ngon của người Ukraine. Thưởng thức Borscht Soup, đầu lưỡi của bạn sẽ cảm nhận vị ngọt ngay lập tức bởi củ cải đường hầm nhừ. Sau đó, hương thơm của lá nguyệt quế sẽ khiến bạn phải xuýt xoa với món ăn đầy sự thanh tao này.</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-an-noi-tieng-chau-au.jpg"width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Doner Kebab ở Thổ Nhĩ Kỳ</h2>
+            <p>Doner Kebab là món bánh mì nổi tiếng của Thổ Nhĩ Kỳ. Món bánh mì này có gì khác biệt so với những loại bánh mì khác trên thế giới? Trước hết, Doner Kebab có hình tam giác đặc trưng không thể nhầm lẫn. Bánh khi ăn nóng có lớp vỏ nóng giòn nhưng bên trong thấm đẫm vị thơm ngon, đậm đà của salad, thịt nướng và nước sốt. Thưởng thức Doner Kebab một lần, bạn sẽ nhớ mãi món ăn đặc biệt này đấy!</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-an-chinh-o-chau-au.jpg"width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Caesar salad</h2>
+            <p>Món Caesar salad được người dân châu Âu vô cùng ưa thích. Món ăn có nguồn gốc từ Ý nên hương vị khá dễ để phân biệt, bao gồm các loại nguyên liệu đặc trưng như dầu oliu, phô mai Parmesan và xà lách Roman. Không chỉ có mùi vị ấn tượng, Caesar salad còn trở thành sự lựa chọn hàng đầu của người dân châu Âu trong những ngày bận rộn nhờ cách chế biến đơn giản và nguyên liệu dễ kiếm.</p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/do-an-chau-au-ngon.jpg"width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Khoai tây đút lò</h2>
+            <p>Khoai tây đút lò là món ăn quen thuộc tại nhiều nước châu Âu. Món ăn này có khâu chế biến đơn giản, phù hợp để chế biến thường xuyên. Dù có nguồn gốc từ Bỉ nhưng theo thời gian, món khoai tây giòn, thơm phức và béo ngậy này trở thành món ăn yêu thích trên toàn châu Âu và ngày càng xuất hiện tại nhiều quốc gia trên thế giới. Do đó, để thưởng thức món khoai tây đút lò chuẩn vị nhất, bạn hãy thử ngay khi du lịch châu Âu nhé!
+
+            </p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-ngon-chau-au.jpg"width="800" height="700">
+        </div>
+        <div class="section">
+            <h2>Cá hồi sốt chanh dây</h2>
+            <p>Nếu là người yêu thích món ăn châu Âu, có thể bạn đã nghe nhắc đến cá hồi sốt chanh dây rồi đúng không nào? Món ăn này được người châu Âu ưa thích bởi mùi vị đặc biệt và thành phần dinh dưỡng cao, rất tốt cho sức khỏe. Sau khi đã thưởng thức các món ăn của châu Âu nhiều dầu mỡ, chọn món cá hồi sốt chanh dây để cân bằng lại khẩu vị là cách hay bạn nên thử đấy!
+
+            </p>
+            <img src="https://lvtgroup.vn/public/elfinder/upload/elfinder/lvt-group/blog/mon-an-chau-au/mon-ngon-o-chau-au.jpg"width="800" height="700">
+        </div>
+    </div>
+</body>
+</html>
